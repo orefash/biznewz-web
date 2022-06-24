@@ -4,7 +4,7 @@ import './styles.css';
 const Footer = () => {
   return (
     <footer className="footer">
-        <p>Copyright &copy; 2022 OreFash</p>
+        <p>Copyright &copy; BizNewz - OreFash 2022</p>
     </footer>
   )
 }
