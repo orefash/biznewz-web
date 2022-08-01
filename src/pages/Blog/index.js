@@ -5,10 +5,19 @@ import Chip from '../../components/common/Chip';
 import EmptyList from '../../components/common/EmptyList';
 import './styles.css';
 import { Link } from 'react-router-dom';
+import { ReactDimmer } from "react-dimmer";
+import { NewsView } from '../../components/NewsView';
+// import { NewsView } from '../../components/NewsView';
 
 const Blog = () => {
-  const { id } = useParams();
+  const { id } = useParams();  
   const [blog, setBlog] = useState(null);
+  const [isModalOpen, setModal] = useState(false);
+  // const [isMenuOpen, setMenu] = useState(false);
+
+  const handleClick = () => {
+    setModal((prevState) => !prevState);
+  };
 
   // console.log("In blog page: "+id)
 
@@ -17,16 +26,11 @@ const Blog = () => {
     const getArticle = async () => {
       const articleFromServer = await fetchArticle()
       setBlog(articleFromServer)
-      console.log("Blog: ", blog)
+      // console.log("Blog: ", blog.url)
     }
 
     getArticle()
 
-    // let blog = blogList.find((blog) => blog.id === parseInt(2));
-    // // let blog = blogList.find((blog) => blog.id === parseInt(id));
-    // if (blog) {
-    //   setBlog(blog);
-    // }
   }, []);
 
   //fetch article by id
@@ -43,6 +47,14 @@ const Blog = () => {
 
     return []
   }
+
+  // const displayNews = async () => {
+  //   console.log("in display news")
+  //   // newsModal.show({ name: 'Nate' })
+  //   NiceModal.show(NewsModal, { name: 'Nate' })
+  // }
+
+ 
 
   return (
     <>
@@ -68,12 +80,25 @@ const Blog = () => {
 
           <div style={{ display: "flex" }}>
             <button
+            onClick={handleClick}
             className='continue-button'
               style={{ marginLeft: "auto" }}
             >
               Continue Reading ➝
             </button>
           </div>
+
+
+          {isModalOpen && <NewsView closeModal={setModal} pageUrl={blog.url} />}
+
+      <ReactDimmer
+        isOpen={isModalOpen}
+        exitDimmer={setModal}
+        zIndex={100}
+        blur={1.5}
+      />
+
+
         </div>
       ) : (
         <EmptyList />
