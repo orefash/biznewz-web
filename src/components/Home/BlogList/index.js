@@ -18,7 +18,7 @@ const BlogList = ({ blogs }) => {
         {blogs
         .slice((currentPage - 1) * pagePostsLimit, currentPage * pagePostsLimit)
         .map((blog) => (
-          <BlogItem blog={blog} key={blog.id} />
+          <BlogItem blog={blog} key={blog.id}  />
         ))}
 
 

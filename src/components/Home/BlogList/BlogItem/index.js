@@ -23,7 +23,7 @@ const BlogItem = ({
       />
       <Chip label={source} />
       <h3>{title}</h3>
-      <p className='blogItem-desc'>{content}</p>
+      {/* <p className='blogItem-desc'>{content}</p> */}
       <footer>
         <div className='blogItem-author'>
           <img src='/assets/images/norange.png' alt='avatar' />

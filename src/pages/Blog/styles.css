@@ -36,3 +36,25 @@
     padding: 1rem;
     margin-top: 1.5rem;
   }
+
+  .continue-button {
+    background-color: #0fba67;
+    transition: background-color 0.25s ease-in-out;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: space-around;
+    padding: 5px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
+    border: none;
+    width: 180px;
+    margin-left: "auto";
+   
+  }
+
+  .continue-button:hover{
+    background-color: #0B874B;
+      cursor: pointer;
+  }
